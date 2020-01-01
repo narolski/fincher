@@ -9,7 +9,7 @@ import torch
 
 
 def main():
-    # torch.cuda.set_device(0)
+    torch.cuda.set_device(0)
     logging.basicConfig(level=logging.INFO)
 
     parser = argparse.ArgumentParser(prog="Document-level Sentiment Classification System")
@@ -17,8 +17,17 @@ def main():
 
     classify_parser = subparsers.add_parser('classify', help='performs a classification of a document or multiple '
                                                              'documents in a given path')
-    classify_parser.add_argument('classify_path', type=str, help='path to .txt file or folder containing multiple .txt '
+    classify_parser.add_argument('--path', type=str, help='path to .txt file or folder containing multiple '
+                                                                  '.txt '
                                                                  'files only')
+    classify_parser.add_argument('--models_path', type=str, help='path to store trained model files',
+                              default="data/models/")
+    classify_parser.add_argument('--uncertainty_level', type=int, help='an maximum amount of difference between the '
+                                                                       'computed probability of a document belonging '
+                                                                       'to a positive class and the probability of '
+                                                                       'belonging to a negative class at which system '
+                                                                       'assigns the document the NEUTRAL label',
+                                 default=5)
 
     data_parser = subparsers.add_parser('prepare_data', help='prepares databunches used for training domain-general '
                                                               'language model, domain-specific language model and '
@@ -79,7 +88,6 @@ def main():
                               default=1)
 
     args = parser.parse_args()
-    print(args)
 
     if args.__contains__('databunches_path'):
         trainer = SentimentClassificationSystemTrainer()
@@ -98,7 +106,13 @@ def main():
                                       args.target_step4_epochs, args.target_step5_epochs), ds_lm_epochs=args.ds_lm_epochs)
 
     elif args.__contains__('classify_path'):
-        classifier = SentimentClassificationSystemClassifier()
+        classifier = SentimentClassificationSystemClassifier(models_path=args.models_path, uncertainty_level=args.uncertainty_level)
+
+        # if Path(args.path).is_file():
+
+
+    else:
+        parser.print_usage()
 
 
 
