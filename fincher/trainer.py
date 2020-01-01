@@ -37,11 +37,9 @@ class SentimentClassificationSystemTrainer:
         :return:
         """
         logging.info("Starting a generation of databunches...")
-        # wiki = WikipediaDownloader()
-        # wiki.download(wikipedia_path, language_code, min_article_len=2600)
-        # wiki.split_into_docs(wikipedia_path, language_code)
-
-        wikipedia_path = Path('/Users/pawel/datasets/plwiki_100m')
+        wiki = WikipediaDownloader()
+        wiki.download(wikipedia_path, language_code, min_article_len=2600)
+        wiki.split_into_docs(wikipedia_path, language_code)
 
         logging.info("Generating a domain-general language model databunch...")
         domain_general = DomainGeneralDataBunch(wikipedia_path, vocab_size, batch_size, num_cpus, language_code)
