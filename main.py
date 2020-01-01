@@ -17,7 +17,7 @@ def main():
 
     classify_parser = subparsers.add_parser('classify', help='performs a classification of a document or multiple '
                                                              'documents in a given path')
-    classify_parser.add_argument('--path', type=str, help='path to .txt file or folder containing multiple '
+    classify_parser.add_argument('path', type=str, help='path to .txt file or folder containing multiple '
                                                                   '.txt '
                                                                  'files only')
     classify_parser.add_argument('--models_path', type=str, help='path to store trained model files',
@@ -107,9 +107,8 @@ def main():
 
     elif args.__contains__('classify_path'):
         classifier = SentimentClassificationSystemClassifier(models_path=args.models_path, uncertainty_level=args.uncertainty_level)
-
-        # if Path(args.path).is_file():
-
+        result = classifier.classify_from_path(args.path)
+        print(result)
 
     else:
         parser.print_usage()
