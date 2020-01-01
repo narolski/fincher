@@ -9,10 +9,10 @@ import torch
 
 
 def main():
-    torch.cuda.set_device(0)
+    # torch.cuda.set_device(0)
     logging.basicConfig(level=logging.INFO)
 
-    parser = argparse.ArgumentParser(prog="Document-level Sentiment Classification System")
+    parser = argparse.ArgumentParser(prog="Document Sentiment Classification System")
     subparsers = parser.add_subparsers(title="Available modes")
 
     classify_parser = subparsers.add_parser('classify', help='performs a classification of a document or multiple '
