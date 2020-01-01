@@ -3,7 +3,8 @@ from databunches.domainspecific import DomainSpecificDataBunch
 from databunches.targetclassifier import TargetClassifierDatabunch
 from fincher.consts import (DOMAIN_GENERAL_DATABUNCH_NAME, DOMAIN_SPECIFIC_DATABUNCH_NAME,
                             TARGET_CLASSIFIER_DATABUNCH_NAME, GENERAL_LM_FILENAME, GENERAL_LM_VOCAB_FILENAME,
-                            DOMAIN_SPECIFIC_LM_FILENAME, DOMAIN_SPECIFIC_ENCODER_FILENAME)
+                            DOMAIN_SPECIFIC_LM_FILENAME, DOMAIN_SPECIFIC_ENCODER_FILENAME,
+                            TARGET_CLASSIFIER_EXPORT_FILENAME)
 
 from models.domaingenerallm import DomainGeneralLanguageModel
 from models.domainspecificlm import DomainSpecificLanguageModel
@@ -65,7 +66,7 @@ class SentimentClassificationSystemTrainer:
 
     @staticmethod
     def train(databunches_path: Path, batch_size: int, general_lm_epochs: int, models_path: Path,
-              frozen_ds_lm_epochs: int, ds_lm_epochs: int, target_max_lr: float, target_training_epochs: slice):
+              frozen_ds_lm_epochs: int, ds_lm_epochs: int, target_max_lr: float, target_training_epochs: tuple):
         general_db = load_data(databunches_path, DOMAIN_GENERAL_DATABUNCH_NAME, bs=batch_size)
         general_lm = DomainGeneralLanguageModel(general_db)
         general_lm.train(batch_size=batch_size, training_epochs=general_lm_epochs)

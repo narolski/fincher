@@ -19,7 +19,7 @@ class TargetClassifier:
                                              wd=wd).to_fp16()
         self.learn.load_encoder(str(encoder_path))
 
-    def train(self, batch_size: int = 64, moms: slice = (0.8, 0.7), training_epochs: slice = (2, 2, 2, 1, 1),
+    def train(self, batch_size: int = 64, moms: slice = (0.8, 0.7), training_epochs: tuple = (2, 2, 2, 1, 1),
               max_lr: float = 2e-2):
         """
         Trains the TargetClassifier.
