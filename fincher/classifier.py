@@ -82,6 +82,6 @@ class SentimentClassificationSystemClassifier:
                 with open(str(doc_path), mode='r') as file:
                     document = file.read()
                     classification, prob_pos, prob_neg = self.classify(document)
-                    results.append(self.format_return(path, classification, prob_pos, prob_neg))
+                    results.append(self.format_return(doc_path, classification, prob_pos, prob_neg))
 
             return "\n".join(results)
