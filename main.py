@@ -9,7 +9,7 @@ import torch
 
 
 def main():
-    torch.cuda.set_device(0)
+    # torch.cuda.set_device(0)
     logging.basicConfig(level=logging.INFO)
 
     parser = argparse.ArgumentParser(prog="Document Sentiment Classification System")
@@ -90,7 +90,7 @@ def main():
 
     args = parser.parse_args()
 
-    if args.__contains__('databunches_path'):
+    if args.__contains__('cpu_count'):
         trainer = SentimentClassificationSystemTrainer()
         trainer.generate_databunches(wikipedia_path=Path(args.wikipedia_path).expanduser(), filmwebplus_path=Path(
             args.filmwebplus_path).expanduser(),
