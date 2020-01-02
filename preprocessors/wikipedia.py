@@ -28,7 +28,8 @@ class WikipediaDownloader:
 
         if not (path/xml_file).exists():
             logging.info("Downloading Wikipedia dump for language code {}...".format(language_code))
-            download_url("https://dumps.wikimedia.org/{}/latest/{}".format(name, zip_file), path/zip_file)
+            download_url("https://dumps.wikimedia.org/{}/latest/{}".format(name, zip_file), path/zip_file,
+                         show_progress=False)
 
             logging.info("Unzipping downloaded Wikipedia dump...")
             bunzip(path/zip_file)

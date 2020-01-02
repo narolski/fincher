@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1059235794fafcc7266f88283514822b40de03cc9fc5e6d0a00fadb46682d6dd"
+            "sha256": "b7efceaf3390d2af0e60b9c793c9957581a08e96c248feea68ac6e8c4bdaea6d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -98,11 +98,11 @@
         },
         "fastai": {
             "hashes": [
-                "sha256:673fed1b2d9db2d97b1bb05057c5bc0ac95c412e9bbc6059d8b1a80bb0ad691f",
-                "sha256:ea4bc5841ba71462aee92cb5e3937c574bd3179cdd4d2b1a36767d01ecb426c1"
+                "sha256:260a4f5cee1dc52129dd5af6e46e5ff591eafddf79b0c72ac6d11bfb40c3661c",
+                "sha256:da67f9bb19a36764bbd030ab1cbb42c2129ed3f7f2760b990ac01fc23f1ea700"
             ],
             "index": "pypi",
-            "version": "==1.0.60"
+            "version": "==1.0.58"
         },
         "fastprogress": {
             "hashes": [
