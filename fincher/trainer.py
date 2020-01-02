@@ -1,10 +1,6 @@
 from databunches.domaingeneral import DomainGeneralDataBunch
 from databunches.domainspecific import DomainSpecificDataBunch
 from databunches.targetclassifier import TargetClassifierDatabunch
-from fincher.consts import (DOMAIN_GENERAL_DATABUNCH_NAME, DOMAIN_SPECIFIC_DATABUNCH_NAME,
-                            TARGET_CLASSIFIER_DATABUNCH_NAME, GENERAL_LM_FILENAME, GENERAL_LM_VOCAB_FILENAME,
-                            DOMAIN_SPECIFIC_LM_FILENAME, DOMAIN_SPECIFIC_ENCODER_FILENAME,
-                            TARGET_CLASSIFIER_EXPORT_FILENAME)
 
 from models.domaingenerallm import DomainGeneralLanguageModel
 from models.domainspecificlm import DomainSpecificLanguageModel
@@ -16,6 +12,17 @@ from fastai.text import *
 
 import logging
 
+
+DOMAIN_GENERAL_DATABUNCH_NAME = 'domain_general_databunch'
+DOMAIN_SPECIFIC_DATABUNCH_NAME = 'domain_specific_databunch'
+TARGET_CLASSIFIER_DATABUNCH_NAME = 'target_classifier_databunch'
+
+GENERAL_LM_FILENAME = "general_language_model"
+GENERAL_LM_VOCAB_FILENAME = "general_language_model_vocab"
+DOMAIN_SPECIFIC_LM_FILENAME = "domain_specific_language_model"
+DOMAIN_SPECIFIC_ENCODER_FILENAME = "domain_specific_encoder"
+
+TARGET_CLASSIFIER_EXPORT_FILENAME = "target_classifier.pkl"
 
 
 class SentimentClassificationSystemTrainer:
@@ -78,8 +85,8 @@ class SentimentClassificationSystemTrainer:
         :param frozen_ds_lm_epochs: epochs to train the final layer of a domain-specific language model for
         :param ds_lm_epochs: epochs to train the entirely unfrozen domain-specific language model
         :param target_max_lr: maximum learning rate value to use when training a final classifier
-        :param target_training_epochs: tuple of training epochs for a final classifier of format (#1ep, #2ep, #3ep,
-        #4ep, #5ep)
+        :param target_training_epochs: tuple of training epochs for a final classifier of format (1ep, 2ep, 3ep,
+        4ep, 5ep)
         :return:
         """
         models_path.mkdir(exist_ok=True, parents=True)
