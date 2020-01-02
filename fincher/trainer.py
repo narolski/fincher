@@ -8,7 +8,7 @@ from fincher.consts import (DOMAIN_GENERAL_DATABUNCH_NAME, DOMAIN_SPECIFIC_DATAB
 
 from models.domaingenerallm import DomainGeneralLanguageModel
 from models.domainspecificlm import DomainSpecificLanguageModel
-from models.targetclassifier import TargetClassifier
+from models.targetclassifiermodel import TargetClassifier
 
 from preprocessors.filmweb import FilmwebPreprocessor
 from preprocessors.wikipedia import WikipediaDownloader
