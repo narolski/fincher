@@ -101,7 +101,7 @@ def main():
     elif args.__contains__('general_lm_epochs'):
         trainer = SentimentClassificationSystemTrainer()
         trainer.train(databunches_path=Path(args.databunches_path).expanduser(), batch_size=args.batch_size,
-              general_lm_epochs=args.general_lm_epochs, models_path=Path(args.model_path).expanduser(),
+              general_lm_epochs=args.general_lm_epochs, models_path=Path(args.models_path).expanduser(),
               frozen_ds_lm_epochs=args.ds_lm_frozen_epochs, target_max_lr=args.target_max_lr,
               target_training_epochs=(args.target_step1_epochs, args.target_step2_epochs, args.target_step3_epochs,
                                       args.target_step4_epochs, args.target_step5_epochs), ds_lm_epochs=args.ds_lm_epochs)
