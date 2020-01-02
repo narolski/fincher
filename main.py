@@ -109,7 +109,7 @@ def main():
     elif args.__contains__('uncertainty_level'):
         classifier = SentimentClassificationSystemClassifier(models_path=Path(args.models_path).expanduser(),
                                                              uncertainty_level=args.uncertainty_level)
-        result = classifier.classify_from_path(args.path)
+        result = classifier.classify_from_path(Path(args.path))
         print(result)
 
     else:

@@ -27,28 +27,20 @@
 <pre><code class="python">from databunches.domaingeneral import DomainGeneralDataBunch
 from databunches.domainspecific import DomainSpecificDataBunch
 from databunches.targetclassifier import TargetClassifierDatabunch
+from fincher.consts import (DOMAIN_GENERAL_DATABUNCH_NAME, DOMAIN_SPECIFIC_DATABUNCH_NAME,
+                            TARGET_CLASSIFIER_DATABUNCH_NAME, GENERAL_LM_FILENAME, GENERAL_LM_VOCAB_FILENAME,
+                            DOMAIN_SPECIFIC_ENCODER_FILENAME, DOMAIN_SPECIFIC_LM_FILENAME,
+                            TARGET_CLASSIFIER_EXPORT_FILENAME)
 
 from models.domaingenerallm import DomainGeneralLanguageModel
 from models.domainspecificlm import DomainSpecificLanguageModel
-from models.targetclassifier import TargetClassifier
+from models.targetclassifiermodel import TargetClassifier
 
 from preprocessors.filmweb import FilmwebPreprocessor
 from preprocessors.wikipedia import WikipediaDownloader
 from fastai.text import *
 
 import logging
-
-
-DOMAIN_GENERAL_DATABUNCH_NAME = &#39;domain_general_databunch&#39;
-DOMAIN_SPECIFIC_DATABUNCH_NAME = &#39;domain_specific_databunch&#39;
-TARGET_CLASSIFIER_DATABUNCH_NAME = &#39;target_classifier_databunch&#39;
-
-GENERAL_LM_FILENAME = &#34;general_language_model&#34;
-GENERAL_LM_VOCAB_FILENAME = &#34;general_language_model_vocab&#34;
-DOMAIN_SPECIFIC_LM_FILENAME = &#34;domain_specific_language_model&#34;
-DOMAIN_SPECIFIC_ENCODER_FILENAME = &#34;domain_specific_encoder&#34;
-
-TARGET_CLASSIFIER_EXPORT_FILENAME = &#34;target_classifier.pkl&#34;
 
 
 class SentimentClassificationSystemTrainer:

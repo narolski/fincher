@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.2" />
-<title>fincher API documentation</title>
-<meta name="description" content="fincher module, handling the usage of a target classifier for the purpose of document-level sentiment classification" />
+<title>fincher.consts API documentation</title>
+<meta name="description" content="" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -17,35 +17,26 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>fincher</code></h1>
+<h1 class="title">Module <code>fincher.consts</code></h1>
 </header>
 <section id="section-intro">
-<p>fincher module, handling the usage of a target classifier for the purpose of document-level sentiment classification</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;
-fincher module, handling the usage of a target classifier for the purpose of document-level sentiment classification
-&#34;&#34;&#34;</code></pre>
+<pre><code class="python">DOMAIN_GENERAL_DATABUNCH_NAME = &#39;domain_general_databunch&#39;
+DOMAIN_SPECIFIC_DATABUNCH_NAME = &#39;domain_specific_databunch&#39;
+TARGET_CLASSIFIER_DATABUNCH_NAME = &#39;target_classifier_databunch&#39;
+
+GENERAL_LM_FILENAME = &#34;generallanguagemodel&#34;
+GENERAL_LM_VOCAB_FILENAME = &#34;generallanguagemodelvocab&#34;
+DOMAIN_SPECIFIC_LM_FILENAME = &#34;domainspecificlanguagemodel&#34;
+DOMAIN_SPECIFIC_ENCODER_FILENAME = &#34;domainspecificencoder&#34;
+
+TARGET_CLASSIFIER_EXPORT_FILENAME = &#34;targetclassifier.pkl&#34;</code></pre>
 </details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
-<dl>
-<dt><code class="name"><a title="fincher.classifier" href="classifier.html">fincher.classifier</a></code></dt>
-<dd>
-<section class="desc"></section>
-</dd>
-<dt><code class="name"><a title="fincher.consts" href="consts.html">fincher.consts</a></code></dt>
-<dd>
-<section class="desc"></section>
-</dd>
-<dt><code class="name"><a title="fincher.trainer" href="trainer.html">fincher.trainer</a></code></dt>
-<dd>
-<section class="desc"></section>
-</dd>
-</dl>
 </section>
 <section>
 </section>
@@ -60,11 +51,9 @@ fincher module, handling the usage of a target classifier for the purpose of doc
 <ul></ul>
 </div>
 <ul id="index">
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3>Super-module</h3>
 <ul>
-<li><code><a title="fincher.classifier" href="classifier.html">fincher.classifier</a></code></li>
-<li><code><a title="fincher.consts" href="consts.html">fincher.consts</a></code></li>
-<li><code><a title="fincher.trainer" href="trainer.html">fincher.trainer</a></code></li>
+<li><code><a title="fincher" href="index.html">fincher</a></code></li>
 </ul>
 </li>
 </ul>
