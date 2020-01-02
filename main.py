@@ -21,7 +21,7 @@ def main():
                                                                   '.txt '
                                                                  'files only')
     classify_parser.add_argument('--models_path', type=str, help='path to store trained model files',
-                              default="data/models/")
+                              default="~/data/models/")
     classify_parser.add_argument('--uncertainty_level', type=int, help='an maximum amount of difference between the '
                                                                        'computed probability of a document belonging '
                                                                        'to a positive class and the probability of '
@@ -32,9 +32,10 @@ def main():
     data_parser = subparsers.add_parser('prepare_data', help='prepares databunches used for training domain-general '
                                                               'language model, domain-specific language model and '
                                                               'target classifier model')
-    data_parser.add_argument('--wikipedia_path', type=str, help='path to store contents of Wikipedia', default="wiki")
+    data_parser.add_argument('--wikipedia_path', type=str, help='path to store contents of Wikipedia',
+                             default="~/data/wikipedia/")
     data_parser.add_argument('--filmwebplus_path', type=str, help='path to filmwebplus.csv file',
-                              default="data/filmwebplus/filmwebplus.csv")
+                              default="~/data/filmwebplus/filmwebplus.csv")
     data_parser.add_argument('--language_code', type=str, help='code of language to use when downloading data from '
                                                                 'Wikipedia and for sentencepiece-based tokenization',
                               default="pl")
@@ -47,15 +48,15 @@ def main():
     data_parser.add_argument('--cpu_count', type=int, help='number of CPUs to use during databunch generation',
                               default=8)
     data_parser.add_argument('--databunches_path', type=str, help='path to store databunch files',
-                              default="data/databunches/")
+                              default="~/data/databunches/")
 
     train_parser = subparsers.add_parser('train', help='trains a domain-general language model, a domain-specific '
                                                        'language model and target classifier model used for '
                                                        'predictions')
     train_parser.add_argument('--databunches_path', type=str, help='path to stored databunch files',
-                             default="data/databunches/")
+                             default="~/data/databunches/")
     train_parser.add_argument('--models_path', type=str, help='path to store trained model files',
-                              default="data/models/")
+                              default="~/data/models/")
     train_parser.add_argument('--batch_size', type=int, help='batch size to use during latter training',
                               default=64)
     train_parser.add_argument('--general_lm_epochs', type=int, help='# of domain-general language model '
@@ -91,16 +92,16 @@ def main():
 
     if args.__contains__('databunches_path'):
         trainer = SentimentClassificationSystemTrainer()
-        trainer.generate_databunches(wikipedia_path=Path(args.wikipedia_path), filmwebplus_path=Path(
-            args.filmwebplus_path),
+        trainer.generate_databunches(wikipedia_path=Path(args.wikipedia_path).expanduser(), filmwebplus_path=Path(
+            args.filmwebplus_path).expanduser(),
                              language_code=args.language_code, vocab_size=args.vocab_size,
                              batch_size=args.batch_size, num_cpus=args.cpu_count, databunches_path=Path(
-                args.databunches_path))
+                args.databunches_path).expanduser())
 
     elif args.__contains__('general_lm_epochs'):
         trainer = SentimentClassificationSystemTrainer()
-        trainer.train(databunches_path=Path(args.databunches_path), batch_size=args.batch_size,
-              general_lm_epochs=args.general_lm_epochs, models_path=Path(args.model_path),
+        trainer.train(databunches_path=Path(args.databunches_path).expanduser(), batch_size=args.batch_size,
+              general_lm_epochs=args.general_lm_epochs, models_path=Path(args.model_path).expanduser(),
               frozen_ds_lm_epochs=args.ds_lm_frozen_epochs, target_max_lr=args.target_max_lr,
               target_training_epochs=(args.target_step1_epochs, args.target_step2_epochs, args.target_step3_epochs,
                                       args.target_step4_epochs, args.target_step5_epochs), ds_lm_epochs=args.ds_lm_epochs)

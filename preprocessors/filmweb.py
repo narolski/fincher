@@ -12,7 +12,7 @@ class FilmwebPreprocessor:
         Initializes the FilmwebPreprocessor.
         :param csv_path: path to a CSV file containing the Filmweb+ dataset
         """
-        self.dataset = pd.from_csv(csv_path)
+        self.dataset = pd.read_csv(csv_path)
         self.__preprocess()
 
     def __preprocess(self):

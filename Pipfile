@@ -7,7 +7,8 @@ verify_ssl = true
 
 [packages]
 fastai = "==1.0.58"
-sentencepiece = "*"
+sentencepiece = "==0.1.85"
+pandas = "==0.25.3"
 
 [requires]
 python_version = "3.7"
