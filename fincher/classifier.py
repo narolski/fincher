@@ -59,9 +59,9 @@ class SentimentClassificationSystemClassifier:
         elif label == SentimentClassificationLabel.NEUTRAL:
             label_text = "neutral"
 
-        return "Document {} - Assigned label: {}, calculated probability of belonging to a positive class: {}, " \
-               "calculated probability of " \
-               "belonging to a negative class: {}".format(str(path), label_text, str(prob_pos), str(prob_neg))
+        return "Document {}:\n - Assigned label: {}\n- Calculated probability of belonging to a positive class: {}\n " \
+               "calculated probability of belonging to a negative class: {}".format(str(path), label_text,
+                                                                                    str(prob_pos), str(prob_neg))
 
     def classify_from_path(self, path: Path) -> str:
         """
