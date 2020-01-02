@@ -107,7 +107,8 @@ def main():
                                       args.target_step4_epochs, args.target_step5_epochs), ds_lm_epochs=args.ds_lm_epochs)
 
     elif args.__contains__('uncertainty_level'):
-        classifier = SentimentClassificationSystemClassifier(models_path=args.models_path, uncertainty_level=args.uncertainty_level)
+        classifier = SentimentClassificationSystemClassifier(models_path=Path(args.models_path).expanduser(),
+                                                             uncertainty_level=args.uncertainty_level)
         result = classifier.classify_from_path(args.path)
         print(result)
 
