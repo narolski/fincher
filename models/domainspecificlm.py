@@ -31,8 +31,7 @@ class DomainSpecificLanguageModel:
         :param training_epochs: training epochs to use in a training instance on an entirely unfrozen model
         :return:
         """
-        self.learn.lr_find()
-        lr = self.learn.recorder.min_grad_lr
+        lr = 1e-3
         lr *= batch_size / (48 / (128 / batch_size))
 
         self.learn.fit_one_cycle(frozen_training_epochs, lr, moms)
