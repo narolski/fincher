@@ -2,7 +2,7 @@ from fastai.text import *
 
 import os
 
-from fincher.trainer import TARGET_CLASSIFIER_EXPORT_FILENAME
+from fincher.consts import TARGET_CLASSIFIER_EXPORT_FILENAME
 
 
 class SentimentClassificationLabel(Enum):
