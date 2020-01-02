@@ -2,6 +2,8 @@ from fastai.text import *
 from fastai import *
 from fastai.basic_data import DataBunch
 
+from fincher.consts import TARGET_CLASSIFIER_EXPORT_FILENAME
+
 
 class TargetClassifier:
     """
@@ -58,7 +60,7 @@ class TargetClassifier:
         :param model_path: path to store the exported classifier
         :return:
         """
-        self.learn.save(model_path, with_opt=False)
+        self.learn.export(model_path / TARGET_CLASSIFIER_EXPORT_FILENAME)
 
     def get_model(self) -> RNNLearner:
         """
