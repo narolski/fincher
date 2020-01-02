@@ -106,7 +106,7 @@ def main():
               target_training_epochs=(args.target_step1_epochs, args.target_step2_epochs, args.target_step3_epochs,
                                       args.target_step4_epochs, args.target_step5_epochs), ds_lm_epochs=args.ds_lm_epochs)
 
-    elif args.__contains__('classify_path'):
+    elif args.__contains__('uncertainty_level'):
         classifier = SentimentClassificationSystemClassifier(models_path=args.models_path, uncertainty_level=args.uncertainty_level)
         result = classifier.classify_from_path(args.path)
         print(result)
