@@ -38,6 +38,7 @@ class WikipediaDownloader:
             if not (path/'wikiextractor').exists():
                 logging.info("Cloning wikiextractor from repo...")
                 os.system('git clone https://github.com/attardi/wikiextractor.git')
+                os.system('cd wikiextractor && git reset --hard 3162bb6c3c9ebd2d15be507aa11d6fa818a454ac && cd ..') # dirty fix
 
             logging.info("Running wikiextractor...")
             os.system("python wikiextractor/WikiExtractor.py --processes 4 --no_templates " +
